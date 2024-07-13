@@ -99,7 +99,7 @@ body {
 
 .list-item:hover .wave {
 
-  animation: wave .3s linear 1;
+  animation: wave .2s linear 1;
 
 }
 
