@@ -1,31 +1,25 @@
 import React from 'react'
 import './App.css'
 
-export default function App() {
+export default function App({ children }) {
   return (
     <main className='main-container'>
-      <div className="page-header">
-        <h1 className='title '>Criar Personagem</h1>
-        <div className="subtitle">
-          D&D 5E
-        </div>
-      </div>
-      <div className="step-description">
-        <div className="title">Passo 1</div>
-        <div className="subtitle">Defina raça, classe e background</div>
-      </div>
+      {children}
       <div className="list-item-group">
         <div className="list-item">
+          <div className="wave"></div>
           <span>Raça</span>
-          <a class="grey-link">Escolher</a>
+          <a className="grey-link">Escolher</a>
         </div>
         <div className="list-item">
+          <div className="wave"></div>
           <span>Classe</span>
-          <a class="grey-link">Escolher</a>
+          <a className="grey-link">Escolher</a>
         </div>
         <div className="list-item">
+          <div className="wave"></div>
           <span>Background</span>
-          <a class="grey-link">Escolher</a>
+          <a className="grey-link">Escolher</a>
         </div>
       </div>
       <div className="footer">
