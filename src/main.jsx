@@ -6,13 +6,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import Step1Page from './pages/Step1Page/Step1Page.jsx';
-import ChooseRacePage from './pages/ChooseRacePage/ChooseRacePage.jsx';
+import Step2Page from './pages/Step2Page/Step2Page.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>
+    element: <App step={"1"}></App>
   },
+  {
+    path: "/step2",
+    element: <App step={"2"}></App>
+  }
 
 ]);
 

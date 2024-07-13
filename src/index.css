@@ -44,12 +44,15 @@ body {
 }
 .primary-button {
   width: 100%;
+  display: block;
+  text-decoration: none;
   background: #3C59FF;
   padding: 1rem;
   font-weight: bold;
   border-radius: 5px;
   text-align: center;
   color: #fff;
+  cursor: pointer;
 }
 .primary-button:hover {
 

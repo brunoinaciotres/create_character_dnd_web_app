@@ -9,12 +9,7 @@ export default function ChooseRacePage({setActualPage, setRaceSelected}) {
     }
     return (
         <>
-            <div className="page-header">
-                <h1 className='title '>Criar Personagem</h1>
-                <div className="subtitle">
-                    D&D 5E
-                </div>
-            </div>
+           
             <div className="step-description">
                 <div className="svg-container">
                     <span onClick={() => {setActualPage("step1")}}>

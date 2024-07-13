@@ -1,44 +1,39 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Step1Page from './pages/Step1Page/Step1Page'
-import ChooseRacePage from './pages/ChooseRacePage/ChooseRacePage'
-import ChooseClassPage from './pages/ChooseClassPage/ChooseClassPage'
-import ChooseBackgroundPage from './pages/ChooseBackgroundPage/ChooseBackgroundPage'
+import Header from './components/Header/Header'
+import Step2Page from './pages/Step2Page/Step2Page'
 
-export default function App({ children }) {
+
+export default function App({ step }) {
 
   // ---- STATES ---- 
   const [actualPage, setActualPage] = useState("step1")
   const [raceSelected, setRaceSelected] = useState(null)
   const [classSelected, setClassSelected] = useState(null)
   const [backgroundSelected, setBackgroundSelected] = useState(null)
-  const [isAllOptionsChosen, setIsAllOptionsChosen] = useState(false)
-  const displayPage = () => { 
-
-    if (actualPage === "step1") {
-      return <Step1Page 
-                classSelected={classSelected} 
-                raceSelected={raceSelected} 
-                backgroundSelected={backgroundSelected}
-                setActualPage={setActualPage}
-              />
-    } 
-    else if (actualPage === "chooseRace") {
-      return <ChooseRacePage setRaceSelected={setRaceSelected} setActualPage={setActualPage}/>
-    } 
-    else if (actualPage === "chooseClass"){
-      return <ChooseClassPage setClassSelected={setClassSelected} setActualPage={setActualPage}/>
-    }
-    else if (actualPage === "chooseBackground"){
-      return <ChooseBackgroundPage setBackgroundSelected={setBackgroundSelected} setActualPage={setActualPage}/>
-    }
-
-
+ 
+ const displayStep = () => {
+  if (step === "1") {
+    return <Step1Page 
+    classSelected={classSelected} 
+    raceSelected={raceSelected} 
+    backgroundSelected={backgroundSelected}
+    setBackgroundSelected={setBackgroundSelected}
+    setRaceSelected={setRaceSelected}
+    setClassSelected={setClassSelected}
+    actualPage={actualPage}
+    setActualPage={setActualPage}
+    ></Step1Page>
+  } 
+  else if (step === "2"){
+    return <Step2Page></Step2Page>
   }
+ }
   return (
     <main className='main-container'>
-      {/* {children} */}
-      {displayPage()}
+      <Header/>
+      {displayStep()}
     </main>
   )
 }
