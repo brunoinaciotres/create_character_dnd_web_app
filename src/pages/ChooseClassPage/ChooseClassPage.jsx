@@ -23,7 +23,7 @@ export default function ChooseClassPage({setClassSelected, setActualPage}) {
                 </svg>
             </span>
         </div>
-        <div className="title">Defina sua raça</div>
+        <div className="title">Defina sua classe</div>
     </div>
     <div className="list-item-group">
         <div className="list-item" onClick={(e) => setClass(e)}>

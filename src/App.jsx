@@ -12,6 +12,7 @@ export default function App({ children }) {
   const [raceSelected, setRaceSelected] = useState(null)
   const [classSelected, setClassSelected] = useState(null)
   const [backgroundSelected, setBackgroundSelected] = useState(null)
+  const [isAllOptionsChosen, setIsAllOptionsChosen] = useState(false)
   const displayPage = () => { 
 
     if (actualPage === "step1") {
@@ -29,7 +30,7 @@ export default function App({ children }) {
       return <ChooseClassPage setClassSelected={setClassSelected} setActualPage={setActualPage}/>
     }
     else if (actualPage === "chooseBackground"){
-      return <ChooseBackgroundPage setActualPage={setActualPage}/>
+      return <ChooseBackgroundPage setBackgroundSelected={setBackgroundSelected} setActualPage={setActualPage}/>
     }
 
 

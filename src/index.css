@@ -42,6 +42,20 @@ body {
   text-align: center;
   color: #3f3f3f;
 }
+.primary-button {
+  width: 100%;
+  background: #3C59FF;
+  padding: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+}
+.primary-button:hover {
+
+  background: #314ce9;
+
+}
 
 .footer {
   margin-top: 2rem;
