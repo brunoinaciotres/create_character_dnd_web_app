@@ -11,12 +11,9 @@ import ChooseRacePage from './pages/ChooseRacePage/ChooseRacePage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App> <Step1Page/> </App>
+    element: <App></App>
   },
-  {
-    path: "/choose-race",
-    element: <App><ChooseRacePage/></App>
-  }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
