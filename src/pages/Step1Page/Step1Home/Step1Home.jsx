@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Step1Home({ actualPage, setActualPage, raceSelected, classSelected, backgroundSelected }) {
-    const [isAllOptionsChosen, setIsAllOptionsChosen] = useState(false)
-
-    useEffect(() => {
-        if (raceSelected != null && classSelected != null && backgroundSelected != null) {
-            setIsAllOptionsChosen(true)
-        }
-        
-    })
+export default function Step1Home({ isAllOptionsChosen, setActualPage, raceSelected, classSelected, backgroundSelected }) {
+   
 
     return (
         <>

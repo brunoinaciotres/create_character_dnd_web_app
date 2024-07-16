@@ -12,7 +12,14 @@ export default function App({ step }) {
   const [raceSelected, setRaceSelected] = useState(null)
   const [classSelected, setClassSelected] = useState(null)
   const [backgroundSelected, setBackgroundSelected] = useState(null)
- 
+  const [isAllOptionsChosen, setIsAllOptionsChosen] = useState(false)
+
+    useEffect(() => {
+        if (raceSelected != null && classSelected != null && backgroundSelected != null) {
+            setIsAllOptionsChosen(true)
+        }
+        
+    })
  const displayStep = () => {
   if (step === "1") {
     return <Step1Page 
@@ -24,10 +31,12 @@ export default function App({ step }) {
     setClassSelected={setClassSelected}
     actualPage={actualPage}
     setActualPage={setActualPage}
+    isAllOptionsChosen={isAllOptionsChosen}
+    setIsAllOptionsChosen={setIsAllOptionsChosen}
     ></Step1Page>
   } 
   else if (step === "2"){
-    return <Step2Page></Step2Page>
+    return <Step2Page isAllOptionsChosen={isAllOptionsChosen}></Step2Page>
   }
  }
   return (

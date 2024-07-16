@@ -5,40 +5,43 @@ import ChooseClassPage from '../ChooseClassPage/ChooseClassPage'
 import ChooseBackgroundPage from '../ChooseBackgroundPage/ChooseBackgroundPage'
 
 
-export default function Step1Page({ 
-    actualPage, 
-    setActualPage,
-    setRaceSelected, 
-    raceSelected, 
-    setBackgroundSelected, 
-    setClassSelected, 
-    classSelected, 
-    backgroundSelected 
+export default function Step1Page({
+  actualPage,
+  setActualPage,
+  setRaceSelected,
+  raceSelected,
+  setBackgroundSelected,
+  setClassSelected,
+  classSelected,
+  backgroundSelected,
+  isAllOptionsChosen
 }) {
 
-    const displayPage = () => { 
 
-        if (actualPage === "step1") {
-          return <Step1Home 
-                    classSelected={classSelected} 
-                    raceSelected={raceSelected} 
-                    backgroundSelected={backgroundSelected}
-                    setActualPage={setActualPage}
-                  /> 
-        } 
-        else if (actualPage === "chooseRace") {
-          return <ChooseRacePage setRaceSelected={setRaceSelected} setActualPage={setActualPage}/>
-        } 
-        else if (actualPage === "chooseClass"){
-          return <ChooseClassPage setClassSelected={setClassSelected} setActualPage={setActualPage}/>
-        }
-        else if (actualPage === "chooseBackground"){
-          return <ChooseBackgroundPage setBackgroundSelected={setBackgroundSelected} setActualPage={setActualPage}/>
-        }
-    
-    }
-    
-    return (
-      displayPage()
-    )
+
+  const pages = {
+    step1: <Step1Home
+      classSelected={classSelected}
+      raceSelected={raceSelected}
+      backgroundSelected={backgroundSelected}
+      setActualPage={setActualPage}
+      isAllOptionsChosen={isAllOptionsChosen}
+    />,
+    chooseRace: <ChooseRacePage
+      setRaceSelected={setRaceSelected}
+      setActualPage={setActualPage}
+    />,
+    chooseClass: <ChooseClassPage
+      setClassSelected={setClassSelected}
+      setActualPage={setActualPage}
+    />,
+    chooseBackground: <ChooseBackgroundPage
+      setBackgroundSelected={setBackgroundSelected}
+      setActualPage={setActualPage}
+    />
+  };
+
+
+
+  return pages[actualPage]
 }
