@@ -1,11 +1,12 @@
-import React from 'react'
-export default function ChooseClassPage({ setClassSelected, setActualPage }) {
-    const setClass = (e) => {
-        let nameClass = e.target.innerText
+import React, { useContext } from 'react'
+import { SheetContext } from '../../../contexts/SheetContextProvider'
+export default function ChooseClassPage({ setActualPage }) {
+    const sheet = useContext(SheetContext)
 
-        setClassSelected(nameClass)
+    const selectThisClass = (e) => {
+        sheet.setClass(e.target.innerText)
         setActualPage("step1")
-    }
+    } 
     return (
         <>
             
@@ -20,40 +21,40 @@ export default function ChooseClassPage({ setClassSelected, setActualPage }) {
                 <div className="title">Defina sua classe</div>
             </div>
             <div className="list-item-group">
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Bárbaro
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Bardo
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Bruxo
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Clérigo
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Druída
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Feiticeiro
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Guerreiro
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Ladino
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Mago
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Monge
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Paladino
                 </div>
-                <div className="list-item" onClick={(e) => setClass(e)}>
+                <div className="list-item" onClick={(e) => selectThisClass(e)}>
                     Patrulheiro
                 </div>
 

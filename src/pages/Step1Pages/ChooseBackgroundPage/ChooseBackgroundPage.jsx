@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SheetContext } from '../../../contexts/SheetContextProvider'
 
 export default function ChooseBackgroundPage({setBackgroundSelected, setActualPage}) {
-    const setBackground = (e) => {
-        let nameBackground = e.target.innerText
+    const sheet = useContext(SheetContext)
 
-        setBackgroundSelected(nameBackground)
+    const selectThisBackground = (e) => {
+        sheet.setBackground(e.target.innerText)
         setActualPage("step1")
-    }
+    } 
     return (
         <>
             
@@ -21,43 +22,43 @@ export default function ChooseBackgroundPage({setBackgroundSelected, setActualPa
                 <div className="title">Defina seu background</div>
             </div>
             <div className="list-item-group">
-                <div className="list-item" onClick={(e) => setBackground(e)}>
+                <div className="list-item" onClick={(e) => selectThisBackground(e)}>
                     Acólito
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Artesão de Guildas
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Artista
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Charlatão
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Criminoso
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Eremita
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Forasteiro
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Herói do Povo
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Marinheiro
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Nobre
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Órfão
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Sábio
                 </div>
-                <div className="list-item"  onClick={(e) => setBackground(e)}>
+                <div className="list-item"  onClick={(e) => selectThisBackground(e)}>
                     Soldado
                 </div>
 
