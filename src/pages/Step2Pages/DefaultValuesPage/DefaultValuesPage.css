@@ -19,6 +19,12 @@
     
 }
 
+.value-item.active {
+ border-color: #6AC9FF;
+ color: #6AC9FF;
+ box-shadow: 0px 0px 6px 2px rgba(106,201,255,0.54);
+}
+
 .value-item.disabled {
     background-color: #171717;
     border:1px solid #313131;
@@ -49,11 +55,37 @@
     padding:10px;
     position: relative;
 }
+.skill-item.active  {
+    border-color: #6AC9FF;
+    color: #6AC9FF;
+    box-shadow: 0px 0px 6px 2px rgba(106,201,255,0.54);
+}
+.skill-item.active .define-button {
+    display: none;
+}
 
+.skill-item.active .skill-name {
+    color: #6AC9FF;
+}
+
+.skill-item.disabled, 
+.skill-item.disabled .skill-name{
+    border-color:#313131;
+    color:#313131;
+    
+}
+.skill-item.disabled .define-button {
+    background-color: #31313120;
+    color:#313131;
+}
 .skill-name {
     font-size:.8rem;
     color: #fff;
    font-weight: medium;
+}
+
+.title.hint {
+    color: #6AC9FF;
 }
 
 .define-button {
@@ -67,4 +99,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.define-button-text {
+    pointer-events: none;
 }

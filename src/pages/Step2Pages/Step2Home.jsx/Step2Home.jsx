@@ -12,7 +12,7 @@ export default function Step2Home({attributesValuesMethod, setAttributesValuesMe
                 <div className="list-item" >
                     <span>
                         Padrão
-                        <span className="ms-1 grey-link">
+                        <span className="ms-2 grey-link">
                             (15, 14, 13, 12, 10, 8)
                         </span>
                     </span>

@@ -3,6 +3,33 @@ import "./DefaultValuesPage.css"
 
 export default function DefaultValuesPage({ setActualPage }) {
     const [isStepCompleted, setIsStepCompleted] = useState(false)
+
+    const selectSkillValue = (e) => {
+        const elementClicked = e.target
+        const hintText = document.querySelector("#hint")
+        hintText.classList.add("hint")
+        hintText.innerText = "Escolha um valor"
+        const skillValues = document.querySelectorAll(".value-item")
+        skillValues.forEach(value => {
+            value.classList.add("active")
+        })
+
+        const skillItems = document.querySelectorAll(".skill-item")
+
+        skillItems.forEach(item => {
+            if(item.getAttribute("value") != elementClicked.getAttribute("value")){
+                item.classList.toggle("disabled")
+                item.classList.add("pointer-events-none")
+
+            } else {
+                item.classList.add("active")
+            }
+
+            
+        })
+
+        elementClicked.classList.add("active")
+    }
     return (
         <>
 
@@ -19,9 +46,9 @@ export default function DefaultValuesPage({ setActualPage }) {
                 </div>
                 <div className="title ">Distribua os valores de habilidade</div>
             </div>
-            <div className="title">Seus valores disponíveis</div>
+            <div className="title" id="hint">Seus valores disponíveis</div>
             <div className="values-group">
-                <div className="value-item">
+                <div className="value-item ">
                     15
                 </div>
                 <div className="value-item">
@@ -42,39 +69,39 @@ export default function DefaultValuesPage({ setActualPage }) {
             </div>
             <div className="title">Habilidades</div>
             <div className="skills-group">
-                <div className="skill-item">
+                <div className="skill-item " value="con">
                     <span className="skill-name">CON</span>
-                    <span className="define-button">
-                        <div className="define-button-text">Definir</div>
+                    <span className="define-button" value="con" onClick={(e) => selectSkillValue(e)}>
+                        <div className="define-button-text" >Definir</div>
                     </span>
                 </div>
-                <div className="skill-item">
+                <div className="skill-item " value="for">
                     <span className="skill-name">FOR</span>
-                    <span className="define-button">
+                    <span className="define-button" value="for" onClick={(e) => selectSkillValue(e)} >
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
-                <div className="skill-item">
+                <div className="skill-item" value="des">
                     <span className="skill-name">DES</span>
-                    <span className="define-button">
+                    <span className="define-button" value="des" onClick={(e) => selectSkillValue(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
-                <div className="skill-item">
+                <div className="skill-item" value="sab">
                     <span className="skill-name">SAB</span>
-                    <span className="define-button">
+                    <span className="define-button" value="sab" onClick={(e) => selectSkillValue(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
-                <div className="skill-item">
+                <div className="skill-item" value="int">
                     <span className="skill-name">INT</span>
-                    <span className="define-button">
+                    <span className="define-button" value="int" onClick={(e) => selectSkillValue(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
-                <div className="skill-item">
+                <div className="skill-item" value="car">
                     <span className="skill-name">CAR</span>
-                    <span className="define-button">
+                    <span className="define-button" value="car" onClick={(e) => selectSkillValue(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
