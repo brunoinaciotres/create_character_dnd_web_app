@@ -13,7 +13,7 @@ export default function Step2Page({}) {
     step2: <Step2Home
       setActualPage={setActualPage}
     />,
-    default: <DefaultValuesPage />
+    default: <DefaultValuesPage setActualPage={setActualPage}/>
   }
   return (
     <>
