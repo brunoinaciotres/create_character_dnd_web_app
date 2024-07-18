@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Step1Home from './Step1Home/Step1Home'
-import ChooseRacePage from '../ChooseRacePage/ChooseRacePage'
-import ChooseClassPage from '../ChooseClassPage/ChooseClassPage'
-import ChooseBackgroundPage from '../ChooseBackgroundPage/ChooseBackgroundPage'
+import ChooseRacePage from './ChooseRacePage/ChooseRacePage'
+import ChooseClassPage from './ChooseClassPage/ChooseClassPage'
+import ChooseBackgroundPage from './ChooseBackgroundPage/ChooseBackgroundPage'
 
 
 export default function Step1Page({

@@ -1,21 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import App2 from './App2.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import Step2Page from './pages/Step2Page/Step2Page.jsx';
+import Step2Page from './pages/Step2Pages/Step2Page.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App step={"1"}></App>
+    element: <App2/>
   },
-  {
-    path: "/step2",
-    element: <App step={"2"}></App>
-  }
+  // {
+  //   path: "/step2",
+  //   element: <App step={"2"}></App>
+  // }
 
 ]);
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import Step1Page from './pages/Step1Page/Step1Page'
+import Step1Page from './pages/Step1Pages/Step1Page'
 import Header from './components/Header/Header'
-import Step2Page from './pages/Step2Page/Step2Page'
+import Step2Page from './pages/Step2Pages/Step2Page'
 
 
 export default function App({ step }) {
@@ -13,6 +13,7 @@ export default function App({ step }) {
   const [classSelected, setClassSelected] = useState(null)
   const [backgroundSelected, setBackgroundSelected] = useState(null)
   const [isAllOptionsChosen, setIsAllOptionsChosen] = useState(false)
+  const [attributesValuesMethod, setAttributesValuesMethod] = useState(null)
 
     useEffect(() => {
         if (raceSelected != null && classSelected != null && backgroundSelected != null) {
@@ -36,7 +37,13 @@ export default function App({ step }) {
     ></Step1Page>
   } 
   else if (step === "2"){
-    return <Step2Page isAllOptionsChosen={isAllOptionsChosen}></Step2Page>
+    return <Step2Page 
+    isAllOptionsChosen={isAllOptionsChosen}
+    actualPage={actualPage}
+    setActualPage={setActualPage}
+    attributesValuesMethod={attributesValuesMethod}
+    setAttributesValuesMethod={setAttributesValuesMethod}
+    ></Step2Page>
   }
  }
   return (

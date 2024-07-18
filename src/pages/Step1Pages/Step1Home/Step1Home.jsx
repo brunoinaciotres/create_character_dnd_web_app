@@ -55,7 +55,7 @@ export default function Step1Home({ isAllOptionsChosen, setActualPage, raceSelec
             </div>
             <div className="footer">
                 {isAllOptionsChosen ? (
-                    <Link to="/step2" className="primary-button">
+                    <Link to="/step2" onClick={()=>{ setActualPage("step2")}} className="primary-button">
                         Avançar
                     </Link>
 

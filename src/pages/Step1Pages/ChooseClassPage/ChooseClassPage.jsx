@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../../components/Header/Header'
-
 export default function ChooseClassPage({ setClassSelected, setActualPage }) {
     const setClass = (e) => {
         let nameClass = e.target.innerText
