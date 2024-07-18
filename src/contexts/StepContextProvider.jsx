@@ -2,10 +2,10 @@ import { createContext } from "react";
 
 const StepContext = createContext()
 
-function StepContextProvider({children, step}) {
+function StepContextProvider({children, steps}) {
    
     return (  
-        <StepContext.Provider value={step}>
+        <StepContext.Provider value={steps}>
             {children}
         </StepContext.Provider>
     );

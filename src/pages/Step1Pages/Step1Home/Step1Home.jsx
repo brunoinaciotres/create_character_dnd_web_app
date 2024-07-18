@@ -14,6 +14,11 @@ export default function Step1Home({ setActualPage }) {
         }
     },[])
 
+    const nextStep = () => {
+        step.setCompletedSteps([step.currentStep])
+        step.setCurrentStep(2)
+    }
+
     return (
         <>
             
@@ -65,7 +70,7 @@ export default function Step1Home({ setActualPage }) {
             </div>
             <div className="footer">
                 {isStepCompleted ? (
-                    <div onClick={()=>{ step.setCurrentStep(2)}} className="primary-button">
+                    <div onClick={nextStep} className="primary-button">
                         Avançar
                     </div>
 
