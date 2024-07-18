@@ -6,14 +6,14 @@ export default function Step2Home({attributesValuesMethod, setAttributesValuesMe
 
             <div className="step-description">
                 <div className="title">Passo 2</div>
-                <div className="subtitle">Defina os valores de atributos</div>
+                <div className="subtitle">Defina os valores de habilidade</div>
             </div>
             <div className="list-item-group">
                 <div className="list-item" >
                     <span>
                         Padrão
                         <span className="ms-1 grey-link">
-                            (15, 14, 12, 12, 10, 8)
+                            (15, 14, 13, 12, 10, 8)
                         </span>
                     </span>
                     <span className='grey-link' onClick={()=>{setActualPage("default")}}>Escolher</span>
