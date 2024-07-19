@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./DefaultValuesPage.css"
+import { SheetContext } from '../../../contexts/SheetContextProvider'
 
 export default function DefaultValuesPage({ setActualPage }) {
     const [isStepCompleted, setIsStepCompleted] = useState(false)
     const [activeSkillItem, setActiveSkillItem] = useState(null)
+    const [skillValuesAvailable, setSkillValuesAvailable] = useState([15, 14, 13, 12, 10, 8])
+    const sheet = useContext(SheetContext)
 
     const selectSkillItem = (e) => {
         const elementClicked = e.target
@@ -16,12 +19,11 @@ export default function DefaultValuesPage({ setActualPage }) {
             value.classList.remove("pointer-events-none")
         })
 
-    
 
         const skillItems = document.querySelectorAll(".skill-item")
 
         skillItems.forEach(item => {
-            if(item.getAttribute("value") != elementClicked.getAttribute("value")){
+            if (item.getAttribute("value") != elementClicked.getAttribute("value")) {
                 item.classList.add("disabled")
                 item.classList.add("pointer-events-none")
 
@@ -35,14 +37,43 @@ export default function DefaultValuesPage({ setActualPage }) {
     }
 
     const selectSkillValue = (e) => {
-        console.log("deu")
-        const value = e.target.getAttribute("value")
-        console.log(e.target)
+
+        const value = Number(e.target.getAttribute("value"))
+
+        const isValueAvailable = skillValuesAvailable.includes(value)
+
+        if (!isValueAvailable) return
+
+        const newArray = skillValuesAvailable.filter(element => element !== value);
+        setSkillValuesAvailable(newArray)
+
+        switch (activeSkillItem) {
+            case "con":
+                sheet.setConstitution(value)
+                break
+            case "str":
+                sheet.setStrength(value)
+                break
+            case "dex":
+                sheet.setDexterity(value)
+                break
+            case "int":
+                sheet.setIntelligence(value)
+                break
+            case "wis":
+                sheet.setWisdom(value)
+                break
+            case "char":
+                sheet.setCharisma(value)
+            default:
+                "Erro"
+        }
+
         const skillItems = document.querySelectorAll(".skill-item")
+
         skillItems.forEach(item => {
-            if (item.getAttribute("value") == activeSkillItem ) {
+            if (item.getAttribute("value") == activeSkillItem) {
                 item.classList.add("is-set")
-                item.children[2].innerText = value
                 item.children[2].classList.remove("d-none")
                 e.target.classList.add("disabled")
             }
@@ -60,6 +91,8 @@ export default function DefaultValuesPage({ setActualPage }) {
         skillItems.forEach(item => {
             item.classList.remove("disabled", "pointer-events-none")
         })
+
+        setActiveSkillItem(null)
     }
     return (
         <>
@@ -85,66 +118,86 @@ export default function DefaultValuesPage({ setActualPage }) {
                 <div className="value-item pointer-events-none" value="14" onClick={selectSkillValue}>
                     14
                 </div>
-                <div className="value-item pointer-events-none"value="13" onClick={selectSkillValue}>
+                <div className="value-item pointer-events-none" value="13" onClick={selectSkillValue}>
                     13
                 </div>
-                <div className="value-item pointer-events-none"value="12" onClick={selectSkillValue}>
+                <div className="value-item pointer-events-none" value="12" onClick={selectSkillValue}>
                     12
                 </div>
-                <div className="value-item pointer-events-none "value="10" onClick={selectSkillValue}>
+                <div className="value-item pointer-events-none " value="10" onClick={selectSkillValue}>
                     10
                 </div>
-                <div className="value-item pointer-events-none"value="8" onClick={selectSkillValue}>
+                <div className="value-item pointer-events-none" value="8" onClick={selectSkillValue}>
                     8
                 </div>
             </div>
-            <div className="title">Habilidades</div>
+            <span className='d-flex align-items-center justify-content-between mb-2'>
+                <div className="title ">
+                    Habilidades
+                </div>
+                <span className="ms-2 refresh-skills-button" >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="15"
+                        height="15"
+                        fill="#fff"
+                        className="bi bi-arrow-clockwise"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            fillRule="evenodd"
+                            d="M8 3a5 5 0 104.546 2.914.5.5 0 01.908-.417A6 6 0 118 2z"
+                        ></path>
+                        <path d="M8 4.466V.534a.25.25 0 01.41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 018 4.466"></path>
+                    </svg>
+                </span>
+            </span>
             <div className="skills-group">
                 <div className="skill-item " value="con">
                     <span className="skill-name">CON</span>
-                    <span className="skill-modifier d-none">+3</span>
-                    <span className="skill-value d-none">15</span>
+                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-value d-none">{sheet.getConstitution()}</span>
                     <span className="define-button" value="con" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text" >Definir</div>
                     </span>
                 </div>
-                <div className="skill-item " value="for">
+                <div className="skill-item " value="str">
                     <span className="skill-name">FOR</span>
-                    <span className="skill-modifier d-none">+3</span>
-                    <span className="skill-value d-none">15</span>
-                    <span className="define-button" value="for" onClick={(e) => selectSkillItem(e)} >
+                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-value d-none">{sheet.getStrength()}</span>
+                    <span className="define-button" value="str" onClick={(e) => selectSkillItem(e)} >
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
-                <div className="skill-item" value="des">
+                <div className="skill-item" value="dex">
                     <span className="skill-name">DES</span>
-                    <span className="skill-modifier d-none">+3</span>
-                    <span className="skill-value d-none">15</span>
-                    <span className="define-button" value="des" onClick={(e) => selectSkillItem(e)}>
+                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-value d-none">{sheet.getDexterity()}</span>
+                    <span className="define-button" value="dex" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
-                <div className="skill-item" value="sab">
+                <div className="skill-item" value="wis">
                     <span className="skill-name">SAB</span>
-                    <span className="skill-modifier d-none">+3</span>
-                    <span className="skill-value d-none">15</span>
-                    <span className="define-button" value="sab" onClick={(e) => selectSkillItem(e)}>
+                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-value d-none">{sheet.getWisdom()}</span>
+                    <span className="define-button" value="wis" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
                 <div className="skill-item" value="int">
                     <span className="skill-name">INT</span>
-                    <span className="skill-modifier d-none">+3</span>
-                    <span className="skill-value d-none">15</span>
+                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-value d-none">{sheet.getIntelligence()}</span>
                     <span className="define-button" value="int" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
-                <div className="skill-item" value="car">
+                <div className="skill-item" value="char">
                     <span className="skill-name">CAR</span>
-                    <span className="skill-modifier d-none">+3</span>
-                    <span className="skill-value d-none">15</span>
-                    <span className="define-button" value="car" onClick={(e) => selectSkillItem(e)}>
+                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-value d-none">{sheet.getCharisma()}</span>
+                    <span className="define-button" value="char" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>

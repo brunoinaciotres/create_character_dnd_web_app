@@ -126,3 +126,10 @@
 .define-button-text {
     pointer-events: none;
 }
+
+.refresh-skills-button {
+    background: #3C59FF;
+    border-radius: 5px;
+    padding: .1rem 1rem;
+    
+}

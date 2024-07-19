@@ -34,7 +34,7 @@ export default function App2() {
             <StepContextProvider steps={step}>
                 <main className='main-container'>
                     <Header />
-                    {stepsPages[currentStep - 1] || `Não há componente Step para \n índice = ${currentStep-1} e currentStep = ${currentStep} no Array steps em <App/>`}
+                    {stepsPages[currentStep - 1] || `Não há componente Step para \n índice = ${currentStep-1} e currentStep = ${currentStep} no Array stepsPages em <App/>`}
                    
                 </main>
             </StepContextProvider>
