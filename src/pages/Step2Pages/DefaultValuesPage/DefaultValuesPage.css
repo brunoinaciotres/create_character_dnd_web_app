@@ -28,7 +28,9 @@
 .value-item.disabled {
     background-color: #171717;
     border:1px solid #313131;
-    color:#313131
+    color:#313131;
+    box-shadow:none;
+    pointer-events: none;
 }
 
  
@@ -55,6 +57,7 @@
     padding:10px;
     position: relative;
 }
+
 .skill-item.active  {
     border-color: #6AC9FF;
     color: #6AC9FF;
@@ -66,6 +69,15 @@
 
 .skill-item.active .skill-name {
     color: #6AC9FF;
+}
+
+.skill-item.is-set .skill-name {
+    color:#6AC9FF
+}
+
+.skill-item.is-set{
+    border:1px solid #6AC9FF;
+    box-shadow: none;
 }
 
 .skill-item.disabled, 
@@ -82,6 +94,16 @@
     font-size:.8rem;
     color: #fff;
    font-weight: medium;
+}
+
+.skill-value {
+    color:#6AC9FF;
+    font-size:1rem;
+}
+
+.skill-modifier {
+    color:#6AC9FF;
+    font-size: 1.5rem;
 }
 
 .title.hint {

@@ -3,8 +3,9 @@ import "./DefaultValuesPage.css"
 
 export default function DefaultValuesPage({ setActualPage }) {
     const [isStepCompleted, setIsStepCompleted] = useState(false)
+    const [activeSkillItem, setActiveSkillItem] = useState(null)
 
-    const selectSkillValue = (e) => {
+    const selectSkillItem = (e) => {
         const elementClicked = e.target
         const hintText = document.querySelector("#hint")
         hintText.classList.add("hint")
@@ -12,23 +13,53 @@ export default function DefaultValuesPage({ setActualPage }) {
         const skillValues = document.querySelectorAll(".value-item")
         skillValues.forEach(value => {
             value.classList.add("active")
+            value.classList.remove("pointer-events-none")
         })
+
+    
 
         const skillItems = document.querySelectorAll(".skill-item")
 
         skillItems.forEach(item => {
             if(item.getAttribute("value") != elementClicked.getAttribute("value")){
-                item.classList.toggle("disabled")
+                item.classList.add("disabled")
                 item.classList.add("pointer-events-none")
 
             } else {
                 item.classList.add("active")
+                setActiveSkillItem(item.getAttribute("value"))
             }
-
-            
         })
 
         elementClicked.classList.add("active")
+    }
+
+    const selectSkillValue = (e) => {
+        console.log("deu")
+        const value = e.target.getAttribute("value")
+        console.log(e.target)
+        const skillItems = document.querySelectorAll(".skill-item")
+        skillItems.forEach(item => {
+            if (item.getAttribute("value") == activeSkillItem ) {
+                item.classList.add("is-set")
+                item.children[2].innerText = value
+                item.children[2].classList.remove("d-none")
+                e.target.classList.add("disabled")
+            }
+        })
+        const hintText = document.querySelector("#hint")
+        hintText.classList.remove("hint")
+        hintText.innerText = "Seus valores disponíveis"
+
+        const skillValues = document.querySelectorAll(".value-item")
+        skillValues.forEach(value => {
+            value.classList.remove("active")
+            value.classList.add("pointer-events-none")
+        })
+
+        skillItems.forEach(item => {
+            item.classList.remove("disabled", "pointer-events-none")
+        })
     }
     return (
         <>
@@ -48,22 +79,22 @@ export default function DefaultValuesPage({ setActualPage }) {
             </div>
             <div className="title" id="hint">Seus valores disponíveis</div>
             <div className="values-group">
-                <div className="value-item ">
+                <div className="value-item pointer-events-none" value="15" onClick={selectSkillValue}>
                     15
                 </div>
-                <div className="value-item">
+                <div className="value-item pointer-events-none" value="14" onClick={selectSkillValue}>
                     14
                 </div>
-                <div className="value-item">
+                <div className="value-item pointer-events-none"value="13" onClick={selectSkillValue}>
                     13
                 </div>
-                <div className="value-item">
+                <div className="value-item pointer-events-none"value="12" onClick={selectSkillValue}>
                     12
                 </div>
-                <div className="value-item disabled">
+                <div className="value-item pointer-events-none "value="10" onClick={selectSkillValue}>
                     10
                 </div>
-                <div className="value-item">
+                <div className="value-item pointer-events-none"value="8" onClick={selectSkillValue}>
                     8
                 </div>
             </div>
@@ -71,37 +102,49 @@ export default function DefaultValuesPage({ setActualPage }) {
             <div className="skills-group">
                 <div className="skill-item " value="con">
                     <span className="skill-name">CON</span>
-                    <span className="define-button" value="con" onClick={(e) => selectSkillValue(e)}>
+                    <span className="skill-modifier d-none">+3</span>
+                    <span className="skill-value d-none">15</span>
+                    <span className="define-button" value="con" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text" >Definir</div>
                     </span>
                 </div>
                 <div className="skill-item " value="for">
                     <span className="skill-name">FOR</span>
-                    <span className="define-button" value="for" onClick={(e) => selectSkillValue(e)} >
+                    <span className="skill-modifier d-none">+3</span>
+                    <span className="skill-value d-none">15</span>
+                    <span className="define-button" value="for" onClick={(e) => selectSkillItem(e)} >
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
                 <div className="skill-item" value="des">
                     <span className="skill-name">DES</span>
-                    <span className="define-button" value="des" onClick={(e) => selectSkillValue(e)}>
+                    <span className="skill-modifier d-none">+3</span>
+                    <span className="skill-value d-none">15</span>
+                    <span className="define-button" value="des" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
                 <div className="skill-item" value="sab">
                     <span className="skill-name">SAB</span>
-                    <span className="define-button" value="sab" onClick={(e) => selectSkillValue(e)}>
+                    <span className="skill-modifier d-none">+3</span>
+                    <span className="skill-value d-none">15</span>
+                    <span className="define-button" value="sab" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
                 <div className="skill-item" value="int">
                     <span className="skill-name">INT</span>
-                    <span className="define-button" value="int" onClick={(e) => selectSkillValue(e)}>
+                    <span className="skill-modifier d-none">+3</span>
+                    <span className="skill-value d-none">15</span>
+                    <span className="define-button" value="int" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
                 <div className="skill-item" value="car">
                     <span className="skill-name">CAR</span>
-                    <span className="define-button" value="car" onClick={(e) => selectSkillValue(e)}>
+                    <span className="skill-modifier d-none">+3</span>
+                    <span className="skill-value d-none">15</span>
+                    <span className="define-button" value="car" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
                     </span>
                 </div>
