@@ -6,6 +6,7 @@ export default function DefaultValuesPage({ setActualPage }) {
     const [isStepCompleted, setIsStepCompleted] = useState(false)
     const [activeSkillItem, setActiveSkillItem] = useState(null)
     const [skillValuesAvailable, setSkillValuesAvailable] = useState([15, 14, 13, 12, 10, 8])
+    const [resetSkillsValues, setResetSkillsValues] = useState(false)
     const sheet = useContext(SheetContext)
 
     const selectSkillItem = (e) => {
@@ -13,6 +14,9 @@ export default function DefaultValuesPage({ setActualPage }) {
         const hintText = document.querySelector("#hint")
         hintText.classList.add("hint")
         hintText.innerText = "Escolha um valor"
+        const refreshSkillValuesButton = document.querySelector(".refresh-skills-button")
+        refreshSkillValuesButton.classList.add("disabled")
+
         const skillValues = document.querySelectorAll(".value-item")
         skillValues.forEach(value => {
             value.classList.add("active")
@@ -94,11 +98,33 @@ export default function DefaultValuesPage({ setActualPage }) {
         })
 
         setActiveSkillItem(null)
+        const refreshSkillValuesButton = document.querySelector(".refresh-skills-button")
+        refreshSkillValuesButton.classList.remove("disabled")
     }
 
     const formatNumberWithSign = (number) => {
         return number >= 0 ? `+${number}` : `${number}`;
-      }
+    }
+
+    const resetSkills = () => {
+        sheet.setStrength(null)
+        sheet.setConstitution(null)
+        sheet.setDexterity(null)
+        sheet.setWisdom(null)
+        sheet.setIntelligence(null)
+        sheet.setCharisma(null)
+
+        const skillModifiers = document.querySelectorAll(".skill-modifier")
+        skillModifiers.forEach(skillModiifer => skillModiifer.classList.add("d-none"))
+
+        const skillItems = document.querySelectorAll(".skill-item")
+        skillItems.forEach(skillItem => skillItem.classList.remove("active", "is-set"))
+
+        const skillValues = document.querySelectorAll(".value-item")
+        skillValues.forEach(value => value.classList.remove("disabled","pointer-events-none"))
+        setSkillValuesAvailable([15,14,13,12,10,8])
+        setResetSkillsValues(true)
+    }
     return (
         <>
 
@@ -140,12 +166,12 @@ export default function DefaultValuesPage({ setActualPage }) {
                 <div className="title ">
                     Habilidades
                 </div>
-                <span className="ms-2 refresh-skills-button" >
+                <span className="ms-2 refresh-skills-button" onClick={resetSkills} >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="15"
                         height="15"
-                        fill="#fff"
+                        fill="currentColor"
                         className="bi bi-arrow-clockwise"
                         viewBox="0 0 16 16"
                     >
@@ -160,7 +186,7 @@ export default function DefaultValuesPage({ setActualPage }) {
             <div className="skills-group">
                 <div className="skill-item " value="con">
                     <span className="skill-name">CON</span>
-                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getConstitutionModifier())}</span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getConstitutionModifier()) }</span>
                     <span className="skill-value d-none">{sheet.getConstitution()}</span>
                     <span className="define-button" value="con" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text" >Definir</div>
@@ -176,7 +202,7 @@ export default function DefaultValuesPage({ setActualPage }) {
                 </div>
                 <div className="skill-item" value="dex">
                     <span className="skill-name">DES</span>
-                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getDexterityModifier())}</span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getDexterityModifier()) }</span>
                     <span className="skill-value d-none">{sheet.getDexterity()}</span>
                     <span className="define-button" value="dex" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>

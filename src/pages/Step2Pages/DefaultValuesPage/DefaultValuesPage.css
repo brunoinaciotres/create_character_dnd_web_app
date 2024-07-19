@@ -135,5 +135,12 @@
     background: #3C59FF;
     border-radius: 5px;
     padding: .1rem 1rem;
-    
+    color:#fff;
+}
+
+.refresh-skills-button.disabled {
+    background-color: transparent;
+    border:1px solid #313131;   
+    color:#313131;
+    pointer-events: none;
 }
