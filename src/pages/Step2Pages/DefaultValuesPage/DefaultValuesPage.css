@@ -90,6 +90,10 @@
     background-color: #31313120;
     color:#313131;
 }
+
+.skill-item.disabled .skill-value {
+    color:#313131
+}
 .skill-name {
     font-size:.8rem;
     color: #fff;
