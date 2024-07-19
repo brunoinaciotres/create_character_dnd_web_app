@@ -74,6 +74,7 @@ export default function DefaultValuesPage({ setActualPage }) {
         skillItems.forEach(item => {
             if (item.getAttribute("value") == activeSkillItem) {
                 item.classList.add("is-set")
+                item.children[1].classList.remove("d-none")
                 item.children[2].classList.remove("d-none")
                 e.target.classList.add("disabled")
             }
@@ -94,6 +95,10 @@ export default function DefaultValuesPage({ setActualPage }) {
 
         setActiveSkillItem(null)
     }
+
+    const formatNumberWithSign = (number) => {
+        return number >= 0 ? `+${number}` : `${number}`;
+      }
     return (
         <>
 
@@ -155,7 +160,7 @@ export default function DefaultValuesPage({ setActualPage }) {
             <div className="skills-group">
                 <div className="skill-item " value="con">
                     <span className="skill-name">CON</span>
-                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getConstitutionModifier())}</span>
                     <span className="skill-value d-none">{sheet.getConstitution()}</span>
                     <span className="define-button" value="con" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text" >Definir</div>
@@ -163,7 +168,7 @@ export default function DefaultValuesPage({ setActualPage }) {
                 </div>
                 <div className="skill-item " value="str">
                     <span className="skill-name">FOR</span>
-                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getStrengthModifier())}</span>
                     <span className="skill-value d-none">{sheet.getStrength()}</span>
                     <span className="define-button" value="str" onClick={(e) => selectSkillItem(e)} >
                         <div className="define-button-text">Definir</div>
@@ -171,7 +176,7 @@ export default function DefaultValuesPage({ setActualPage }) {
                 </div>
                 <div className="skill-item" value="dex">
                     <span className="skill-name">DES</span>
-                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getDexterityModifier())}</span>
                     <span className="skill-value d-none">{sheet.getDexterity()}</span>
                     <span className="define-button" value="dex" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
@@ -179,7 +184,7 @@ export default function DefaultValuesPage({ setActualPage }) {
                 </div>
                 <div className="skill-item" value="wis">
                     <span className="skill-name">SAB</span>
-                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getWisdomModifier())}</span>
                     <span className="skill-value d-none">{sheet.getWisdom()}</span>
                     <span className="define-button" value="wis" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
@@ -187,7 +192,7 @@ export default function DefaultValuesPage({ setActualPage }) {
                 </div>
                 <div className="skill-item" value="int">
                     <span className="skill-name">INT</span>
-                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getIntelligenceModifier())}</span>
                     <span className="skill-value d-none">{sheet.getIntelligence()}</span>
                     <span className="define-button" value="int" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
@@ -195,7 +200,7 @@ export default function DefaultValuesPage({ setActualPage }) {
                 </div>
                 <div className="skill-item" value="char">
                     <span className="skill-name">CAR</span>
-                    <span className="skill-modifier d-none"></span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getCharismaModifier())}</span>
                     <span className="skill-value d-none">{sheet.getCharisma()}</span>
                     <span className="define-button" value="char" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
