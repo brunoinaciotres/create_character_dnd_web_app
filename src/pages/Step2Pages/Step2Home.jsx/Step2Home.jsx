@@ -22,11 +22,11 @@ export default function Step2Home({attributesValuesMethod, setAttributesValuesMe
                 <div className="list-item" >
                     <span>
                         Padrão
-                        <span className="ms-2 grey-link">
+                        <span className="ms-2 blue-link">
                             (15, 14, 13, 12, 10, 8)
                         </span>
                     </span>
-                    <span className='grey-link' onClick={()=>{setActualPage("default")}}>Escolher</span>
+                    <span className='blue-link' onClick={()=>{setActualPage("default")}}>Escolher</span>
                 </div>
                 <div className="list-item">
                     Rolagem Aleatória

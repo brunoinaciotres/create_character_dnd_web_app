@@ -137,10 +137,11 @@
 }
 
 .refresh-skills-button {
-    background: #3C59FF;
+    background: #ffffff20;
     border-radius: 5px;
-    padding: .1rem 1rem;
-    color:#fff;
+    padding: 0 2rem;
+    border: 1px solid #d9d9d950;
+    color: #fff;
 }
 
 .refresh-skills-button.disabled {

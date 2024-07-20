@@ -36,7 +36,7 @@ export default function Step1Home({ setActualPage }) {
                         <span className="ms-2">{sheet.getRace() == null ? "Raça" : sheet.getRace()}</span>
                     </span>
 
-                    <a onClick={() => { setActualPage("chooseRace") }} className="grey-link">
+                    <a onClick={() => { setActualPage("chooseRace") }} className="blue-link">
                         {sheet.getRace() != null ? "Alterar" : "Escolher"}
                     </a>
                 </div>
@@ -49,7 +49,7 @@ export default function Step1Home({ setActualPage }) {
 
                         <span className="ms-2">{sheet.getClass() == null ? "Classe" : sheet.getClass()}</span>
                     </span>
-                    <a onClick={() => { setActualPage("chooseClass") }} className="grey-link">
+                    <a onClick={() => { setActualPage("chooseClass") }} className="blue-link">
                         {sheet.getClass() != null ? "Alterar" : "Escolher"}
                     </a>
                 </div>
@@ -62,7 +62,7 @@ export default function Step1Home({ setActualPage }) {
                         <span className="ms-2">{sheet.getBackground() == null ? "Background" : sheet.getBackground()}</span>
 
                     </span>
-                    <a onClick={() => { setActualPage("chooseBackground") }} className="grey-link">
+                    <a onClick={() => { setActualPage("chooseBackground") }} className="blue-link">
                         {sheet.getBackground() != null ? "Alterar" : "Escolher"}
                     </a>
                 </div>
