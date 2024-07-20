@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { SheetContext } from '../../../contexts/SheetContextProvider'
 import { StepContext } from '../../../contexts/StepContextProvider'
-
+import "./Step1Home.css"
 export default function Step1Home({ setActualPage }) {
     const sheet = useContext(SheetContext)
     const step = useContext(StepContext)
@@ -27,7 +26,7 @@ export default function Step1Home({ setActualPage }) {
                 <div className="subtitle">Defina raça, classe e background</div>
             </div>
             <div className="list-item-group">
-                <div className={`list-item ${sheet.getRace() != null ? "border-white" : null}`}>
+                <div className={`list-item ${sheet.getRace() != null ? "active" : null}`}>
                     <div className="wave"></div>
                     <span className='d-flex align-items-center'>
                         {sheet.getRace() != null ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-circle-fill" viewBox="0 0 16 16">
@@ -41,7 +40,7 @@ export default function Step1Home({ setActualPage }) {
                         {sheet.getRace() != null ? "Alterar" : "Escolher"}
                     </a>
                 </div>
-                <div className={`list-item ${sheet.getClass() != null ? "border-white" : null}`}>
+                <div className={`list-item ${sheet.getClass() != null ? "active" : null}`}>
                     <div className="wave"></div>
                     <span className='d-flex align-items-center'>
                         {sheet.getClass() != null ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-circle-fill" viewBox="0 0 16 16">
@@ -54,7 +53,7 @@ export default function Step1Home({ setActualPage }) {
                         {sheet.getClass() != null ? "Alterar" : "Escolher"}
                     </a>
                 </div>
-                <div className={`list-item ${sheet.getBackground() != null ? "border-white" : null}`}>
+                <div className={`list-item ${sheet.getBackground() != null ? "active" : null}`}>
                     <div className="wave"></div>
                     <span className='d-flex align-items-center'>
                         {sheet.getBackground() != null ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-circle-fill" viewBox="0 0 16 16">

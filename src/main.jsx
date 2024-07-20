@@ -6,10 +6,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import Sheet from './class/Sheet'
+
+const Sheet1 = new Sheet({})
+
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>
+    element: <App sheet={Sheet1}/>
   }
 
 ]);

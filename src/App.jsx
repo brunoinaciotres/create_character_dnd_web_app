@@ -4,10 +4,10 @@ import Step1Page from './pages/Step1Pages/Step1Page'
 import Header from './components/Header/Header'
 import Step2Page from './pages/Step2Pages/Step2Page'
 import { SheetContextProvider } from './contexts/SheetContextProvider'
-import Sheet from './class/Sheet'
+
 import {StepContextProvider} from './contexts/StepContextProvider'
 
-export default function App2() {
+export default function App2({sheet}) {
 
     // ---- STATES ---- 
 
@@ -27,10 +27,10 @@ export default function App2() {
         setCompletedSteps
     }
 
-    const Sheet1 = new Sheet({})
+    
 
     return (
-        <SheetContextProvider sheet={Sheet1} >
+        <SheetContextProvider sheet={sheet} >
             <StepContextProvider steps={step}>
                 <main className='main-container'>
                     <Header />
