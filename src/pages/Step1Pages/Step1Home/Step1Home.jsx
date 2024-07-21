@@ -1,26 +1,44 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { SheetContext } from '../../../contexts/SheetContextProvider'
 import { StepContext } from '../../../contexts/StepContextProvider'
 import "./Step1Home.css"
 export default function Step1Home({ setActualPage }) {
     const sheet = useContext(SheetContext)
     const step = useContext(StepContext)
+    const [lastRace, setLastRace] = useState(null)
     const [isStepCompleted, setIsStepCompleted] = useState(false)
-
-    useEffect(()=>{
-        if (sheet.getRace() != null && sheet.getClass() != null && sheet.getBackground() != null){
+    const audioRef = useRef(null)
+    
+    useEffect(() => {
+        if (sheet.getRace() != null && sheet.getClass() != null && sheet.getBackground() != null) {
             setIsStepCompleted(true)
         }
-    },[])
+        playAudio()
+    })
+
+
+
+
+
 
     const nextStep = () => {
         step.setCompletedSteps([step.currentStep])
         step.setCurrentStep(2)
     }
 
+    const playAudio = () => {
+        if (audioRef.current) {
+            audioRef.current.play().catch(error => {
+              console.error("Erro ao reproduzir o áudio:", error);
+            });
+        }
+    }
+
+
     return (
         <>
-            
+            <audio id="audio" ref={audioRef} src="/sounds/select-sound.mp3" />
+
             <div className="step-description">
                 <div className="title">Passo 1</div>
                 <div className="subtitle">Defina raça, classe e background</div>

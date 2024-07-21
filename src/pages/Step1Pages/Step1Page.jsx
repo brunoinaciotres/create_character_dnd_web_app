@@ -3,7 +3,6 @@ import Step1Home from './Step1Home/Step1Home'
 import ChooseRacePage from './ChooseRacePage/ChooseRacePage'
 import ChooseClassPage from './ChooseClassPage/ChooseClassPage'
 import ChooseBackgroundPage from './ChooseBackgroundPage/ChooseBackgroundPage'
-import { SheetContext } from '../../contexts/SheetContextProvider'
 
 
 export default function Step1Page() {

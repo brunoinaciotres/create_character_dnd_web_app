@@ -1,16 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import './ChooseRacePage.css'
 import { SheetContext } from '../../../contexts/SheetContextProvider'
 export default function ChooseRacePage({ setActualPage }) {
     const sheet = useContext(SheetContext)
+    const audioRef = useRef(null);
 
     const selectThisRace = (e) => {
         sheet.setRace(e.target.innerText)
         setActualPage("step1")
-    } 
+       
+    }
+
+   
+
+
+
     return (
         <>
-
             <div className="step-description">
                 <div className="svg-container">
                     <span onClick={() => { setActualPage("step1") }}>
