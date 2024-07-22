@@ -17,16 +17,13 @@ export default function Step1Home({ setActualPage }) {
     })
 
 
-
-
-
-
     const nextStep = () => {
         step.setCompletedSteps([step.currentStep])
         step.setCurrentStep(2)
     }
 
     const playAudio = () => {
+        audioRef.currentTime = .2
         if (audioRef.current) {
             audioRef.current.play().catch(error => {
               console.error("Erro ao reproduzir o áudio:", error);

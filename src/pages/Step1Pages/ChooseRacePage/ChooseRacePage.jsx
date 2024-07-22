@@ -3,7 +3,7 @@ import './ChooseRacePage.css'
 import { SheetContext } from '../../../contexts/SheetContextProvider'
 export default function ChooseRacePage({ setActualPage }) {
     const sheet = useContext(SheetContext)
-    const audioRef = useRef(null);
+    
 
     const selectThisRace = (e) => {
         sheet.setRace(e.target.innerText)

@@ -11,11 +11,11 @@ export default function DefaultValuesPage({ setActualPage }) {
     const sheet = useContext(SheetContext)
     const step = useContext(StepContext)
 
-    useEffect(()=> {
-        if (sheet.getStrength() != null && sheet.getConstitution() != null && sheet.getDexterity() != null && sheet.getWisdom() != null && sheet.getIntelligence() != null && sheet.getCharisma() != null){
+    useEffect(() => {
+        if (sheet.getStrength() != null && sheet.getConstitution() != null && sheet.getDexterity() != null && sheet.getWisdom() != null && sheet.getIntelligence() != null && sheet.getCharisma() != null) {
             setIsStepCompleted(true)
         }
-        
+
     })
 
     const nextStep = () => {
@@ -135,8 +135,8 @@ export default function DefaultValuesPage({ setActualPage }) {
         skillItems.forEach(skillItem => skillItem.classList.remove("active", "is-set"))
 
         const skillValues = document.querySelectorAll(".value-item")
-        skillValues.forEach(value => value.classList.remove("disabled","pointer-events-none"))
-        setSkillValuesAvailable([15,14,13,12,10,8])
+        skillValues.forEach(value => value.classList.remove("disabled", "pointer-events-none"))
+        setSkillValuesAvailable([15, 14, 13, 12, 10, 8])
         setResetSkillsValues(true)
         setIsStepCompleted(false)
     }
@@ -145,10 +145,10 @@ export default function DefaultValuesPage({ setActualPage }) {
 
             <div className="step-description">
                 <div className="svg-container">
-                    <span onClick={() => { 
-                        setActualPage("step2") 
+                    <span onClick={() => {
+                        setActualPage("step2")
                         resetSkills()
-                        }}>
+                    }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                             <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
                         </svg>
@@ -204,7 +204,7 @@ export default function DefaultValuesPage({ setActualPage }) {
             <div className="skills-group">
                 <div className="skill-item " value="con">
                     <span className="skill-name">CON</span>
-                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getConstitutionModifier()) }</span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getConstitutionModifier())}</span>
                     <span className="skill-value d-none">{sheet.getConstitution()}</span>
                     <span className="define-button" value="con" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text" >Definir</div>
@@ -220,7 +220,7 @@ export default function DefaultValuesPage({ setActualPage }) {
                 </div>
                 <div className="skill-item" value="dex">
                     <span className="skill-name">DES</span>
-                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getDexterityModifier()) }</span>
+                    <span className="skill-modifier d-none">{formatNumberWithSign(sheet.getDexterityModifier())}</span>
                     <span className="skill-value d-none">{sheet.getDexterity()}</span>
                     <span className="define-button" value="dex" onClick={(e) => selectSkillItem(e)}>
                         <div className="define-button-text">Definir</div>
