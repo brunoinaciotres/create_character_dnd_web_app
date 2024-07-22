@@ -5,7 +5,7 @@ import Step2Home from './Step2Home.jsx/Step2Home'
 import DefaultValuesPage from './DefaultValuesPage/DefaultValuesPage'
 import { StepContext } from '../../contexts/StepContextProvider'
 
-export default function Step2Page({}) {
+export default function Step2Page({ }) {
   const { completedSteps } = useContext(StepContext)
   const [actualPage, setActualPage] = useState("step2")
 
@@ -13,10 +13,13 @@ export default function Step2Page({}) {
     step2: <Step2Home
       setActualPage={setActualPage}
     />,
-    default: <DefaultValuesPage setActualPage={setActualPage}/>
+    default: <DefaultValuesPage setActualPage={setActualPage} />
   }
   return (
     <>
+      <div className="sub-header">
+        Passo 2
+      </div>
       {completedSteps.find(step => step === 1)
         ? pages[actualPage]
         : (

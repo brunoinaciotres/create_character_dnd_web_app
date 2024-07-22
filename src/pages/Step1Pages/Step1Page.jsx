@@ -25,5 +25,12 @@ export default function Step1Page() {
     />
   };
 
-  return pages[actualPage]
+  return ( 
+    <>
+    <div className="sub-header">
+      Passo 1
+    </div>
+    {pages[actualPage]}
+    </>
+  )
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect,  useState } from 'react'
 import { SheetContext } from '../../../contexts/SheetContextProvider'
 import { StepContext } from '../../../contexts/StepContextProvider'
 import "./Step1Home.css"
@@ -7,13 +7,13 @@ export default function Step1Home({ setActualPage }) {
     const step = useContext(StepContext)
     const [lastRace, setLastRace] = useState(null)
     const [isStepCompleted, setIsStepCompleted] = useState(false)
-    const audioRef = useRef(null)
+    
     
     useEffect(() => {
         if (sheet.getRace() != null && sheet.getClass() != null && sheet.getBackground() != null) {
             setIsStepCompleted(true)
         }
-        playAudio()
+      
     })
 
 
@@ -22,23 +22,14 @@ export default function Step1Home({ setActualPage }) {
         step.setCurrentStep(2)
     }
 
-    const playAudio = () => {
-        audioRef.currentTime = .2
-        if (audioRef.current) {
-            audioRef.current.play().catch(error => {
-              console.error("Erro ao reproduzir o áudio:", error);
-            });
-        }
-    }
+
 
 
     return (
         <>
-            <audio id="audio" ref={audioRef} src="/sounds/select-sound.mp3" />
 
-            <div className="step-description">
-                <div className="title">Passo 1</div>
-                <div className="subtitle">Defina raça, classe e background</div>
+            <div className="step-description ">
+                <div className="title">Defina raça, classe e background</div>
             </div>
             <div className="list-item-group">
                 <div className={`list-item ${sheet.getRace() != null ? "active" : null}`}>
@@ -84,12 +75,12 @@ export default function Step1Home({ setActualPage }) {
             </div>
             <div className="footer">
                 {isStepCompleted ? (
-                    <div onClick={nextStep} className="primary-button">
+                    <div onClick={nextStep} className="action-text">
                         Avançar
                     </div>
 
                 ) : (
-                    <div className="disabled-button">
+                    <div className="action-text disabled">
                         Defina as opções
                     </div>
                 )}

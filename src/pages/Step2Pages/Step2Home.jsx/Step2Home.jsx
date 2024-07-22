@@ -15,8 +15,7 @@ export default function Step2Home({attributesValuesMethod, setAttributesValuesMe
                         </svg>
                     </span>
                 </div>
-                <div className="title">Passo 2</div>
-                <div className="subtitle">Defina os valores de habilidade</div>
+                <div className="title">Defina os valores de habilidade</div>
             </div>
             <div className="list-item-group">
                 <div className="list-item" >

@@ -1,5 +1,9 @@
 .list-item.active,.list-item svg  {
-    border-color: #6AC9FF;
-    color:#6AC9FF;
+    border-color: #fff;
+    color: #fff
+}
+
+.list-item.active {
+    background-color: #ffffff10;
 }
 
