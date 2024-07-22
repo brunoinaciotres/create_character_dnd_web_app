@@ -18,7 +18,7 @@ export default function Step2Page({ }) {
   return (
     <>
       <div className="sub-header">
-        Passo 2
+      <span className="title">Passo 2</span>
       </div>
       {completedSteps.find(step => step === 1)
         ? pages[actualPage]

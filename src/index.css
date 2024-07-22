@@ -16,7 +16,7 @@ body {
   justify-content: start;
   flex-direction: column;
   min-height: 100dvh;
-  padding: 150px 1rem;
+  padding: 160px 1rem;
 
 }
 
@@ -43,7 +43,7 @@ body {
   top:100px;  
   padding:1rem;
   font-weight: bold;
-  height: 50px;
+  z-index:2;
 }
 
 .disabled-button {
